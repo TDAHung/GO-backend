@@ -1,6 +1,6 @@
 # README
 
-# Run these command below in your temrminal of the project
+# Run these command below in your temrminal of the project if you want to run locally
 # rails db:create
 # rails db:migrate
 # rails db:seed
