@@ -1,0 +1,25 @@
+    = turbo_frame_tag "shopping_cart_items"
+        - if shopping_cart.nil?
+            div class="app__cart__empty"
+                    p class="app__cart__empty__text" Your cart is empty
+        - else
+            - shopping_cart.find_each do |cart_item|
+                div class="app__cart__item"
+                    div class="app__cart__item__left cartItemLeft"
+                        div class="app__cart__item__image cartItemImage" style="background-color: #{cart_item.product.color};"
+                            div class="app__cart__item__image__block"
+                                img src="#{cart_item.product.image}"
+                                    alt=""
+                    div class="app__cart__item__right cartItemRight"
+                        div class="app__cart__item__name cartItemName" #{cart_item.product.name}
+                        div class="app__cart__item__price cartItemPrice" $#{cart_item.product.price}
+                        div class="app__cart__item__action cartItemActions"
+                            div class="app__cart__item__count cartItemCount"
+                                = render partial: "shared/shopping_cart/shopping_cart_change_quantity", locals: {cart_item: cart_item, action: "-"}
+                                = render partial: "shared/shopping_cart/edit_quantity", locals: {cart_item: cart_item}
+                                = render partial: "shared/shopping_cart/shopping_cart_change_quantity", locals: {cart_item: cart_item, action: "+"}
+                            form action="#{shopping_carts_path}/#{cart_item.product_id}" method="post" class="form_quantity"
+                                input type="hidden" name="_method" value="delete"
+                                button type="submit" class="app__cart__item__remove cartItemRemove button__action"
+                                    img src="/assets/trash.png" alt=""
+                                = hidden_field_tag :authenticity_token, form_authenticity_token

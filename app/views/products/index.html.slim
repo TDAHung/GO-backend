@@ -1,0 +1,27 @@
+    div class="app__card"
+        div class="app__card__top"
+            div class="app__card__top__logo"
+                img src="/assets/nike.png" alt=""
+            div class="app__card__title" Our Products
+        div class="app__card__body"
+            - @products.find_each do |product|
+                div class="app__shop__item" id="#{product.id}"
+                    div class="app__shop__item__img" style="background-color: #{product.color}"
+                        img src="#{product.image}" alt=""
+                    div class="app__shop__item__name" #{product.name}
+                    div class="app__shop__item__description" #{product.description}
+                    div class="app__shop__item__bottom"
+                        div class="app__shop__item__price" $#{product.price}
+                        = render partial: "shared/add_cart", locals: {product_cart: product}
+    div class="app__card"
+        div class="app__card__top"
+            div class="app__card__top__logo"
+                img src="assets/nike.png" alt=""
+        div class="app__card__title"
+            | Your Carts
+            = render partial: "shared/shopping_cart/shopping_total_price", locals: {shopping_cart: @shopping_cart}
+
+        div class="app__card__body"
+            = render partial: "shared/shopping_cart/shopping_cart_items", locals: {shopping_cart: @shopping_cart}
+
+

@@ -1,0 +1,5 @@
+    = turbo_frame_tag "shopping_cart_total_price"
+        - total_price = 0
+        - shopping_cart.find_each do |item_cart|
+            - total_price += item_cart.product.price * item_cart.quantity
+        span class="app__card__title__amount" $#{total_price.round(2)}

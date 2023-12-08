@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title GOBackend
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+    = stylesheet_link_tag "app.css"
+    = stylesheet_link_tag "app_shop.css"
+    = stylesheet_link_tag "app_card.css"
+
+  body
+    div class="main__content"
+      = yield
+    / = javascript_include_tag 'app.js'
+
+

@@ -1,0 +1,10 @@
+
+        form action="#{shopping_carts_path}/#{cart_item.product_id}" method="post" accept-charset="UTF-8" class="form_quantity"
+            = hidden_field_tag :authenticity_token, form_authenticity_token
+            - if action == '-' && cart_item.quantity == 1
+                input type="hidden" name="_method" value="delete"
+            - else
+                input type="hidden" name="_method" value="patch" autocomplete="off"
+                input name="product_id" value="#{cart_item.product_id}" type="hidden"
+                input name="change_quantity" value="#{action}" type="hidden"
+            button type="submit" class="app__cart__item__count__button button__action"#{action}

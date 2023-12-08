@@ -1,0 +1,13 @@
+    = turbo_frame_tag "cart_#{product_cart.id}" do
+        - if product_cart.shopping_cart.nil?
+            form action="#{shopping_carts_path}" method="post" accept-charset="UTF-8"
+                input name="authenticity_token" type="hidden"
+                input type="hidden" name="item_cart[quantity]" id="quantity" value="1"
+                input type="hidden" name="item_cart[product_id]" id="product_id" value="#{product_cart.id}"
+                button type="submit" class="app__shop__item__button"
+                    p ADD TO CART
+
+        - else
+            div class="app__shop__item__button app__inactive"
+                div class="app__shop__item__button__cover"
+                    div class="app__shop__item__button__check__cover"

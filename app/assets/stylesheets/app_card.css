@@ -1,0 +1,83 @@
+.app__card {
+    background-color: #fff;
+    box-sizing: border-box;
+    width: 36rem;
+    height: 60rem;
+    box-shadow: 0 0.32rem 0.22rem rgba(0, 0, 0, .02),
+        0 0.7rem 0.54rem rgba(0, 0, 0, .028),
+        0 0.12rem 1rem rgba(0, 0, 0, .035),
+        0 2rem 18rem rgba(0, 0, 0, .042),
+        0 3.5rem 3.4rem rgba(0, 0, 0, .05),
+        0 8rem 8rem rgba(0, 0, 0, .07);
+    border-radius: 3rem;
+    overflow: hidden;
+    padding: 0 2.8rem;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.app__card:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 30rem;
+    height: 30rem;
+    border-radius: 100%;
+    background-color: #f6c90e;
+    top: -20%;
+    left: -50%;
+    z-index: 0;
+}
+
+.app__card__top {
+    margin: 1.2rem 0;
+    position: relative;
+}
+
+.app__card__top__logo {
+    display: block;
+    width: 5rem;
+}
+
+.app__card__title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin: 1.6rem 0;
+    position: relative;
+}
+
+.app__card__body {
+    height: calc(100% - 10rem);
+    position: relative;
+    overflow-y: scroll;
+    scrollbar-width: none
+}
+
+.app__card__body::-webkit-scrollbar {
+    display: none
+}
+
+.button__action {
+    border-width: 0rem;
+    border-color: none;
+}
+
+@media only screen and (max-width: 80rem) {
+    .app__card {
+        margin: 2rem auto
+    }
+}
+
+@media only screen and (max-width: 48rem) {
+    .app__card {
+        width: 34rem
+    }
+}
+
+@media only screen and (max-width: 32rem) {
+    .app__card {
+        width: 30rem;
+        height: 48rem;
+        padding: 0 1.4rem
+    }
+}
